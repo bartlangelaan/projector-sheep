@@ -1,7 +1,7 @@
 	<style type="text/css">
 		body {
 			overflow: hidden;
-			background-color: black;
+			background-color: darkBlue;
 		}
 		img {
 			position: absolute;
@@ -13,14 +13,14 @@
 			side = Math.floor(Math.random() * 4);
 			switch (side) {
 				case 0:
-					this.positionX = 0;
+					this.positionX = -400;
 					this.positionY = Math.round(Math.random() * window.innerHeight);
 					this.directionX = 1;
 					this.directionY = Math.random() * 2 - 1;
 					break;
 				case 1:
 					this.positionX = Math.round(Math.random() * window.innerWidth);
-					this.positionY = 0;
+					this.positionY = -400;
 					this.directionX = Math.random() * 2 - 1;
 					this.directionY = 1;
 					break;
@@ -37,10 +37,11 @@
 					this.directionY = -1;
 					break;
 			}		
-			document.body.appendChild(this.canvas = document.createElement('img'));
-			this.canvas.src = 'https://dha4w82d62smt.cloudfront.net/items/142P0v2P3j3C1K1w101K/sheep.png';
-			this.canvas.style.left = this.positionX + 'px';
-			this.canvas.style.top = this.positionY + 'px';
+			document.body.appendChild(this.image = document.createElement('img'));
+			//this.image.src = 'assets/images/sheep.png';
+			this.image.src = 'https://dha4w82d62smt.cloudfront.net/items/142P0v2P3j3C1K1w101K/sheep.png';
+			this.image.style.left = this.positionX + 'px';
+			this.image.style.top = this.positionY + 'px';
 			this.interval = setInterval('sheep.animate();', 10)
 		}
 		Sheep.prototype.animate = sheepAnimate;
@@ -48,10 +49,10 @@
 		function sheepAnimate() {
 			this.positionX += this.directionX;
 			this.positionY += this.directionY;
-			this.canvas.style.left = Math.round(this.positionX) + 'px';
-			this.canvas.style.top = Math.round(this.positionY) + 'px';
-			if ((this.positionX < 0 || this.positionX > window.innerWidth) && (this.positionY < 0 || this.positionY > window.innerHeight)) {
-				this.canvas.style.left = '-500px';
+			this.image.style.left = Math.round(this.positionX) + 'px';
+			this.image.style.top = Math.round(this.positionY) + 'px';
+			if (this.positionX < -400 || this.positionX > window.innerWidth || this.positionY < -400 || this.positionY > window.innerHeight) {
+				this.image.style.left = '-500px';
 				clearInterval(this.interval);
 				init();
 			}
@@ -61,3 +62,6 @@
 			sheep = new Sheep();
 		}
 	</script>
+	<!--
+		<html><body onload='init()'></body></html>
+	-->
