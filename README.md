@@ -1,3 +1,3 @@
 # sheep
 
-This app will show allow you to count sheep
+This app will allow you to count sheep.
