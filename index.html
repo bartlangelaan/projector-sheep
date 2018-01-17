@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<title>Counting sheep</title>
+	<style type="text/css">
+		body {
+			overflow: hidden;
+			background-color: black;
+		}
+		img {
+			position: absolute;
+		}
+	</style>
+
+	<script type="text/javascript">
+	<!--
+		function Sheep(ownName) {
+			side = Math.floor(Math.random() * 4);
+			switch (side) {
+				case 0:
+					this.positionX = 0;
+					this.positionY = Math.round(Math.random() * window.innerHeight);
+					this.directionX = 1;
+					this.directionY = Math.random() * 2 - 1;
+					break;
+				case 1:
+					this.positionX = Math.round(Math.random() * window.innerWidth);
+					this.positionY = 0;
+					this.directionX = Math.random() * 2 - 1;
+					this.directionY = 1;
+					break;
+				case 2:
+					this.positionX = window.innerWidth;
+					this.positionY = Math.round(Math.random() * window.innerHeight);
+					this.directionX = -1;
+					this.directionY = Math.random() * 2 - 1;
+					break;
+				case 3:
+					this.positionX = Math.round(Math.random() * window.innerWidth);
+					this.positionY = window.innerHeight;
+					this.directionX = Math.random() * 2 - 1;
+					this.directionY = -1;
+					break;
+			}		
+			document.body.appendChild(this.canvas = document.createElement('img'));
+			this.canvas.src = 'assets/images/sheep.png';
+			this.canvas.style.left = this.positionX + 'px';
+			this.canvas.style.top = this.positionY + 'px';
+			this.interval = setInterval('sheep.animate();', 10)
+		}
+		Sheep.prototype.animate = sheepAnimate;
+
+		function sheepAnimate() {
+			this.positionX += this.directionX;
+			this.positionY += this.directionY;
+			this.canvas.style.left = Math.round(this.positionX) + 'px';
+			this.canvas.style.top = Math.round(this.positionY) + 'px';
+			if ((this.positionX < 0 || this.positionX > window.innerWidth) && (this.positionY < 0 || this.positionY > window.innerHeight)) {
+				this.canvas.style.left = '-100px';
+				clearInterval(this.interval);
+				createSheep();
+			}
+		}
+
+		function createSheep() {
+			sheep = new Sheep('Sheep');
+		}
+	//-->
+	</script>
+
+
+</head>
+
+<body onload="createSheep();">
+</body>
+
+</html>
+

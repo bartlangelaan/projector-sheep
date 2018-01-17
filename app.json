@@ -1,0 +1,22 @@
+{
+    "id": "projector-sheep",
+    "name": {
+        "en": "Sheep",
+        "nl": "Schaapjes"
+    },
+    "version": "0.0.1",
+    "compatibility": "0.x || 1.x",
+    "author": {
+        "name": "Wouter Bergmann Tiest",
+        "email": "W.M.Bergmann.Tiest@hr.nl",
+        "website": "lumos.space",
+        "github": "https://github.com/team-spaceship/projector-sheep"
+    },
+    "description": {
+        "en": "Counting sheep"
+    },
+    "dependencies": {},
+    "permissions": [
+        "projector:manager:measure-light"
+    ]
+}
