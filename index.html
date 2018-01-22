@@ -49,7 +49,7 @@
 			this.image.src = 'https://dha4w82d62smt.cloudfront.net/items/142P0v2P3j3C1K1w101K/sheep.png';
 			this.image.style.left = this.positionX + 'px';
 			this.image.style.top = this.positionY + 'px';
-			interval = setInterval('sheep.animate();', 10);
+			window.interval = setInterval('sheep.animate();', 10);
 		}
 
 		Sheep.prototype.animate = function() {
@@ -60,13 +60,15 @@
 			if (this.positionX < -400 || this.positionX > window.innerWidth || this.positionY < -400 || this.positionY > window.innerHeight) {
 				this.image.style.left = '-500px';
 				
-				clearInterval(interval);
+				clearInterval(window.interval);
 				init();
 			}
 		}
 
 		function init() {
-			sheep = new Sheep();
+			setTimeout(function() {
+				sheep = new Sheep(); 
+			}, 100);
 		}
 		
 		init();
