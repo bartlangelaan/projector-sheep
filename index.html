@@ -1,75 +1,75 @@
-	<style type="text/css">
-		body {
-			overflow: hidden;
-		}
-		
-		#sheep-container {
-			width: 100%;
-			height: 100%;
-		}
-		
-		img {
-			position: absolute;
-		}
-	</style>
+<style type="text/css">
+	body {
+		overflow: hidden;
+	}
+	
+	#sheep-container {
+		width: 100%;
+		height: 100%;
+	}
+	
+	img {
+		position: absolute;
+	}
+</style>
 
-	<div id="sheep-container"></div>
+<div id="sheep-container"></div>
 
-	<script type="text/javascript">
-		function Sheep() {
-			side = Math.floor(Math.random() * 4);
-			switch (side) {
-				case 0:
-					this.positionX = -400;
-					this.positionY = Math.round(Math.random() * window.innerHeight);
-					this.directionX = 1;
-					this.directionY = Math.random() * 2 - 1;
-					break;
-				case 1:
-					this.positionX = Math.round(Math.random() * window.innerWidth);
-					this.positionY = -400;
-					this.directionX = Math.random() * 2 - 1;
-					this.directionY = 1;
-					break;
-				case 2:
-					this.positionX = window.innerWidth;
-					this.positionY = Math.round(Math.random() * window.innerHeight);
-					this.directionX = -1;
-					this.directionY = Math.random() * 2 - 1;
-					break;
-				case 3:
-					this.positionX = Math.round(Math.random() * window.innerWidth);
-					this.positionY = window.innerHeight;
-					this.directionX = Math.random() * 2 - 1;
-					this.directionY = -1;
-					break;
-			}		
-			document.getElementById("sheep-container").appendChild(this.image = document.createElement('img'));
-			//this.image.src = 'assets/images/sheep.png';
-			this.image.src = 'https://dha4w82d62smt.cloudfront.net/items/142P0v2P3j3C1K1w101K/sheep.png';
-			this.image.style.left = this.positionX + 'px';
-			this.image.style.top = this.positionY + 'px';
-			window.interval = setInterval('sheep.animate();', 10);
-		}
+<script type="text/javascript">
+	function Sheep() {
+		side = Math.floor(Math.random() * 4);
+		switch (side) {
+			case 0:
+				this.positionX = -400;
+				this.positionY = Math.round(Math.random() * window.innerHeight);
+				this.directionX = 1;
+				this.directionY = Math.random() * 2 - 1;
+				break;
+			case 1:
+				this.positionX = Math.round(Math.random() * window.innerWidth);
+				this.positionY = -400;
+				this.directionX = Math.random() * 2 - 1;
+				this.directionY = 1;
+				break;
+			case 2:
+				this.positionX = window.innerWidth;
+				this.positionY = Math.round(Math.random() * window.innerHeight);
+				this.directionX = -1;
+				this.directionY = Math.random() * 2 - 1;
+				break;
+			case 3:
+				this.positionX = Math.round(Math.random() * window.innerWidth);
+				this.positionY = window.innerHeight;
+				this.directionX = Math.random() * 2 - 1;
+				this.directionY = -1;
+				break;
+		}		
+		document.getElementById("sheep-container").appendChild(this.image = document.createElement('img'));
+		//this.image.src = 'assets/images/sheep.png';
+		this.image.src = 'https://dha4w82d62smt.cloudfront.net/items/142P0v2P3j3C1K1w101K/sheep.png';
+		this.image.style.left = this.positionX + 'px';
+		this.image.style.top = this.positionY + 'px';
+		window.interval = setInterval('sheep.animate();', 10);
+	}
 
-		Sheep.prototype.animate = function() {
-			this.positionX += this.directionX;
-			this.positionY += this.directionY;
-			this.image.style.left = Math.round(this.positionX) + 'px';
-			this.image.style.top = Math.round(this.positionY) + 'px';
-			if (this.positionX < -400 || this.positionX > window.innerWidth || this.positionY < -400 || this.positionY > window.innerHeight) {
-				this.image.style.left = '-500px';
-				
-				clearInterval(window.interval);
-				init();
-			}
+	Sheep.prototype.animate = function() {
+		this.positionX += this.directionX;
+		this.positionY += this.directionY;
+		this.image.style.left = Math.round(this.positionX) + 'px';
+		this.image.style.top = Math.round(this.positionY) + 'px';
+		if (this.positionX < -400 || this.positionX > window.innerWidth || this.positionY < -400 || this.positionY > window.innerHeight) {
+			this.image.style.left = '-500px';
+			
+			clearInterval(window.interval);
+			startSheep();
 		}
+	}
 
-		function init() {
-			setTimeout(function() {
-				sheep = new Sheep(); 
-			}, 100);
-		}
-		
-		init();
-	</script>
+	function startSheep() {
+		sheep = new Sheep(); 
+	}
+	
+	setTimeout(function() {
+		startSheep();
+	}, 100);
+</script>
