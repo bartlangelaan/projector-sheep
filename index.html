@@ -49,7 +49,8 @@
 		this.image.src = 'https://dha4w82d62smt.cloudfront.net/items/142P0v2P3j3C1K1w101K/sheep.png';
 		this.image.style.left = this.positionX + 'px';
 		this.image.style.top = this.positionY + 'px';
-		window.interval = setInterval('sheep.animate();', 10);
+		this.interval = setInterval('sheep.animate();', 10);
+		window.interval.push(this.interval);
 	}
 
 	Sheep.prototype.animate = function() {
@@ -59,8 +60,7 @@
 		this.image.style.top = Math.round(this.positionY) + 'px';
 		if (this.positionX < -400 || this.positionX > window.innerWidth || this.positionY < -400 || this.positionY > window.innerHeight) {
 			this.image.style.left = '-500px';
-			
-			clearInterval(window.interval);
+			clearInterval(this.interval)
 			startSheep();
 		}
 	}
