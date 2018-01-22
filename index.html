@@ -50,7 +50,7 @@
 		this.image.style.left = this.positionX + 'px';
 		this.image.style.top = this.positionY + 'px';
 		this.interval = setInterval('sheep.animate();', 10);
-		if (window.interval) {
+		if (window.interval && typeof window.interval == "object") {
 			window.interval.push(this.interval);
 		}
 	}
