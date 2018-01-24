@@ -1,5 +1,5 @@
 {
-    "id": "projector-sheep",
+    "id": "musclecom",
     "name": {
         "en": "Sheep",
         "nl": "Schaapjes"
@@ -10,10 +10,10 @@
         "name": "Wouter Bergmann Tiest",
         "email": "W.M.Bergmann.Tiest@hr.nl",
         "website": "lumos.space",
-        "github": "https://github.com/team-spaceship/projector-sheep"
+        "github": "https://github.com/bartlangelaan/projector-sheep"
     },
     "description": {
-        "en": "Counting sheep"
+        "en": "Musclecom"
     },
     "dependencies": {},
     "permissions": [
